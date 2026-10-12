@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juan Carlos &amp; Rachel · 4 Años de Fiesta de Bodas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- =========================================================
+     ✏️  PERSONALIZACIÓN RÁPIDA
+     Todo lo que puedes cambiar sin tocar el diseño está
+     marcado con el emoji ✏️  a lo largo de este archivo.
+     1) FECHA y CUENTA REGRESIVA  -> busca "EDITA 1"
+     2) LÍNEA DE TIEMPO           -> busca "EDITA 2"
+     3) RAZONES                   -> busca "EDITA 3"
+     4) CARTA / DEDICATORIA       -> busca "EDITA 4"
+     5) MÚSICA                    -> busca "EDITA 5"
+     ========================================================= -->
+
+<style>
+  :root{
+    --vino:#5d0d24;
+    --vino-osc:#2a0713;
+    --rosa-viejo:#a01838;
+    --oro:#e8c56a;
+    --oro-claro:#f7e3ae;
+    --crema:#fdf6ec;
+    --tinta:#f3e6da;
+    --sombra:0 20px 60px rgba(0,0,0,.45);
+    --fuente-titulo:'Cormorant Garamond', Georgia, serif;
+    --fuente-script:'Great Vibes', 'Brush Script MT', cursive;
+    --fuente-cuerpo:'Montserrat', 'Segoe UI', sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--fuente-cuerpo);
+    background:
+      radial-gradient(1200px 700px at 15% -10%, #7a1030 0%, transparent 60%),
+      radial-gradient(900px 600px at 100% 10%, #4d0a1e 0%, transparent 55%),
+      linear-gradient(180deg,#2a0713 0%, #1a040d 45%, #12030a 100%);
+    color:var(--tinta);
+    overflow-x:hidden;
+    min-height:100vh;
+    line-height:1.7;
+  }
+  ::selection{background:var(--oro);color:#2a0713}
+
+  /* ---------- PARTÍCULAS DE PÉTALOS ---------- */
+  #petalos{position:fixed;inset:0;pointer-events:none;z-index:2}
+
+  /* ---------- PRELOADER ---------- */
+  #preloader{
+    position:fixed;inset:0;z-index:9999;
+    background:linear-gradient(160deg,#2a0713,#5d0d24);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:22px;transition:opacity .9s ease, visibility .9s;
+  }
+  #preloader.oculto{opacity:0;visibility:hidden}
+  .corazon-carga{
+    width:70px;height:70px;position:relative;
+    animation:latido 1.2s ease-in-out infinite;
+  }
+  .corazon-carga svg{width:100%;height:100%;filter:drop-shadow(0 0 18px rgba(232,197,106,.65))}
+  #preloader p{
+    font-family:var(--fuente-script);font-size:2rem;color:var(--oro-claro);
+    letter-spacing:1px;
+  }
+  @keyframes latido{
+    0%,100%{transform:scale(1)}
+    14%{transform:scale(1.22)}
+    28%{transform:scale(1)}
+    42%{transform:scale(1.16)}
+    56%{transform:scale(1)}
+  }
+
+  /* ---------- BOTÓN MÚSICA ---------- */
+  #btnMusica{
+    position:fixed;top:18px;right:18px;z-index:60;
+    width:52px;height:52px;border-radius:50%;
+    background:rgba(20,4,11,.7);border:1px solid rgba(232,197,106,.5);
+    color:var(--oro);font-size:20px;cursor:pointer;
+    backdrop-filter:blur(8px);
+    display:flex;align-items:center;justify-content:center;
+    transition:.3s;
+  }
+  #btnMusica:hover{background:var(--oro);color:#2a0713;transform:scale(1.08)}
+  #btnMusica.girando span{display:inline-block;animation:rotar 4s linear infinite}
+  @keyframes rotar{to{transform:rotate(360deg)}}
+
+  /* ---------- REPRODUCTOR DE FONDO (video oficial de YouTube) ---------- */
+  #ytFondo{
+    position:fixed;right:0;bottom:0;
+    width:220px;height:124px;
+    opacity:.001;pointer-events:none;z-index:0;overflow:hidden;
+  }
+
+  /* ---------- BOTÓN PAUSA DE LA GALERÍA ---------- */
+  #btnPausa{
+    position:fixed;top:80px;right:18px;z-index:60;
+    width:52px;height:52px;border-radius:50%;
+    background:rgba(20,4,11,.7);border:1px solid rgba(232,197,106,.5);
+    color:var(--oro);font-size:17px;cursor:pointer;
+    backdrop-filter:blur(8px);
+    display:flex;align-items:center;justify-content:center;
+    transition:.3s;
+  }
+  #btnPausa:hover{background:var(--oro);color:#2a0713;transform:scale(1.08)}
+
+  /* ---------- CONTENIDO ---------- */
+  main{position:relative;z-index:3}
+  section{padding:90px 22px;max-width:1120px;margin:0 auto}
+
+  .kicker{
+    display:inline-block;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--oro);border:1px solid rgba(232,197,106,.4);
+    padding:8px 20px;border-radius:40px;margin-bottom:22px;
+    background:rgba(232,197,106,.06);
+  }
+  h2.titulo{
+    font-family:var(--fuente-titulo);font-size:clamp(2.1rem,5vw,3.4rem);
+    font-weight:600;line-height:1.15;margin-bottom:14px;color:var(--crema);
+  }
+  h2.titulo em{font-family:var(--fuente-script);font-style:normal;color:var(--oro);font-weight:400}
+  .subtitulo{max-width:640px;color:rgba(243,230,218,.72);font-weight:300;font-size:1.02rem}
+  .centro{text-align:center}
+  .centro .subtitulo{margin-inline:auto}
+
+  .linea-oro{
+    width:120px;height:1px;margin:26px auto;
+    background:linear-gradient(90deg,transparent,var(--oro),transparent);
+    position:relative;
+  }
+  .linea-oro::after{
+    content:"♥";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    color:var(--oro);font-size:.75rem;background:transparent;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    padding:58px 22px 150px;position:relative;
+  }
+  .marco-oro{
+    border:1px solid rgba(232,197,106,.35);
+    padding:clamp(28px,6vw,56px) clamp(20px,7vw,74px);
+    border-radius:4px;position:relative;
+    background:radial-gradient(circle at 50% 0%, rgba(232,197,106,.10), transparent 70%);
+    box-shadow:var(--sombra);
+    max-width:900px;width:100%;
+    backdrop-filter:blur(3px);
+  }
+  .marco-oro::before,.marco-oro::after{
+    content:"";position:absolute;width:26px;height:26px;
+    border:2px solid var(--oro);
+  }
+  .marco-oro::before{top:-2px;left:-2px;border-right:0;border-bottom:0}
+  .marco-oro::after{bottom:-2px;right:-2px;border-left:0;border-top:0}
+
+  .saludo{
+    font-family:var(--fuente-script);
+    font-size:clamp(1.5rem,4vw,2.2rem);color:var(--oro-claro);
+    margin-bottom:6px;
+  }
+  .nombres{
+    font-family:var(--fuente-titulo);
+    font-size:clamp(2.6rem,9vw,5.4rem);
+    font-weight:700;line-height:1.02;color:var(--crema);
+    text-shadow:0 4px 30px rgba(0,0,0,.5);
+  }
+  .nombres .amp{
+    display:block;font-family:var(--fuente-script);font-weight:400;
+    color:var(--oro);font-size:.62em;margin:2px 0;
+  }
+  .anios{
+    margin-top:18px;display:flex;align-items:center;justify-content:center;gap:16px;
+    flex-wrap:wrap;
+  }
+  .anios .num{
+    font-family:var(--fuente-titulo);font-size:clamp(3rem,10vw,5rem);
+    color:var(--oro);line-height:1;font-weight:700;
+    text-shadow:0 0 40px rgba(232,197,106,.45);
+  }
+  .anios .txt{
+    text-align:left;font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;
+    color:rgba(243,230,218,.8);
+  }
+  .anios .txt b{display:block;font-size:1rem;letter-spacing:.14em;color:var(--crema);font-weight:600}
+
+  /* ---------- CUENTA REGRESIVA ---------- */
+  .cuenta{
+    margin-top:34px;display:flex;gap:clamp(8px,2.5vw,22px);justify-content:center;flex-wrap:wrap;
+  }
+  .caja-cuenta{
+    min-width:clamp(70px,19vw,104px);
+    background:rgba(10,2,6,.55);
+    border:1px solid rgba(232,197,106,.32);
+    border-radius:6px;padding:14px 8px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  }
+  .caja-cuenta .valor{
+    font-family:var(--fuente-titulo);font-size:clamp(1.9rem,6vw,2.9rem);
+    font-weight:700;color:var(--oro);line-height:1;
+    font-variant-numeric:tabular-nums;
+  }
+  .caja-cuenta .etiqueta{
+    font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;
+    color:rgba(243,230,218,.65);margin-top:7px;
+  }
+  .leyenda-fecha{
+    margin-top:26px;font-family:var(--fuente-titulo);font-style:italic;
+    font-size:clamp(1rem,3vw,1.3rem);color:rgba(243,230,218,.85);
+  }
+  .leyenda-fecha span{color:var(--oro);font-weight:600;font-style:normal}
+
+  .scroll-indicador{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;
+    color:rgba(243,230,218,.5);display:flex;flex-direction:column;
+    align-items:center;gap:8px;
+  }
+  .scroll-indicador i{
+    width:1px;height:38px;background:linear-gradient(var(--oro),transparent);
+    display:block;animation:bajar 1.8s ease-in-out infinite;
+  }
+  @keyframes bajar{0%,100%{opacity:.3;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+
+  /* ---------- VISTA BLOQUEADA: SOLO LA CUENTA REGRESIVA ---------- */
+  body.bloqueado{overflow:hidden;height:100vh}
+  body.bloqueado main>section:not(.hero),
+  body.bloqueado footer{display:none}
+  body.bloqueado .scroll-indicador{display:none}
+
+  .aviso-bloqueo{
+    display:none;margin-top:26px;
+    font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(243,230,218,.78);
+    border:1px solid rgba(232,197,106,.42);border-radius:40px;
+    padding:11px 24px;background:rgba(232,197,106,.07);
+    align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+    text-align:center;
+  }
+  body.bloqueado .aviso-bloqueo{display:flex}
+  .aviso-bloqueo b{color:var(--oro);font-weight:600;letter-spacing:.14em}
+  .aviso-bloqueo .latido{animation:latido 1.6s ease-in-out infinite}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(38px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.3,1)}
+  .reveal.visible{opacity:1;transform:none}
+
+  /* ---------- LÍNEA DE TIEMPO ---------- */
+  .timeline{position:relative;margin-top:56px;padding-left:34px}
+  .timeline::before{
+    content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(180deg,transparent,var(--oro) 12%,var(--oro) 88%,transparent);
+    opacity:.55;
+  }
+  .hitos{display:grid;gap:26px}
+  .hito{position:relative}
+  .hito::before{
+    content:"♥";position:absolute;left:-34px;top:4px;
+    width:18px;height:18px;border-radius:50%;
+    background:var(--vino);border:1px solid var(--oro);
+    color:var(--oro);font-size:.55rem;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 14px rgba(232,197,106,.5);
+  }
+  .hito .fecha{
+    font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--oro);
+  }
+  .hito h3{
+    font-family:var(--fuente-titulo);font-size:1.55rem;font-weight:600;
+    color:var(--crema);margin:5px 0 6px;
+  }
+  .hito p{color:rgba(243,230,218,.7);font-weight:300;font-size:.97rem;max-width:640px}
+
+  /* ---------- GALERÍA ---------- */
+  .galeria{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:16px;margin-top:50px;
+  }
+  .galeria-nota{
+    text-align:center;margin-top:20px;
+    font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;
+    color:rgba(243,230,218,.5);
+  }
+  .foto{
+    position:relative;border-radius:6px;overflow:hidden;
+    aspect-ratio:4/5;border:1px solid rgba(232,197,106,.25);
+    background:linear-gradient(145deg,#3d0a1c,#5d0d24);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .5s cubic-bezier(.2,.7,.3,1), box-shadow .5s;
+  }
+  .foto:hover{transform:translateY(-7px) scale(1.02);box-shadow:var(--sombra)}
+
+  /* --- dos capas de foto para el fundido cruzado automático --- */
+  .foto .capa{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    opacity:0;z-index:1;pointer-events:none;
+    transition:opacity .95s ease;
+  }
+  .foto .capa.on{opacity:1;animation:kenburns 8s ease-out both}
+  @keyframes kenburns{from{transform:scale(1.005)}to{transform:scale(1.1)}}
+
+  /* velo inferior para que se lea el pie de foto */
+  .foto::after{
+    content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+    background:linear-gradient(to top, rgba(16,3,9,.9) 0%, rgba(16,3,9,.35) 32%, transparent 60%);
+  }
+
+  /* tarjeta de carga (se oculta sola cuando entra la primera foto) */
+  .foto .marco-fallback{
+    text-align:center;padding:24px;position:relative;z-index:2;
+    display:flex;flex-direction:column;gap:12px;align-items:center;
+    transition:opacity .7s ease;
+  }
+  .foto .marco-fallback.oculto{opacity:0;pointer-events:none}
+  .foto .marco-fallback .icono{font-size:2.1rem;opacity:.9}
+  .foto .marco-fallback .texto{
+    font-family:var(--fuente-script);font-size:1.3rem;color:var(--oro-claro);
+  }
+  .foto .marco-fallback .pista{
+    font-size:.66rem;letter-spacing:.16em;color:rgba(243,230,218,.55);
+    text-transform:uppercase;
+  }
+
+  /* pie de foto que cambia con la rotación */
+  .foto .pie-foto{
+    position:absolute;left:12px;right:12px;bottom:13px;z-index:4;
+    text-align:center;pointer-events:none;
+    font-family:var(--fuente-script);
+    font-size:clamp(1.05rem,2.7vw,1.35rem);
+    color:var(--oro-claro);text-shadow:0 2px 14px rgba(0,0,0,.9);
+    opacity:0;transition:opacity .55s ease;
+  }
+  .foto .pie-foto span{
+    display:block;margin-top:3px;
+    font-family:var(--fuente-cuerpo);font-size:.56rem;
+    letter-spacing:.28em;text-transform:uppercase;
+    color:rgba(243,230,218,.62);
+  }
+  .foto.enpausa .capa.on{animation-play-state:paused}
+  .foto.enpausa::before{
+    content:"⏸";position:absolute;top:10px;right:10px;z-index:5;
+    width:26px;height:26px;border-radius:50%;
+    background:rgba(16,3,9,.75);border:1px solid rgba(232,197,106,.5);
+    color:var(--oro);font-size:.6rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- RAZONES ---------- */
+  .razones{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
+    gap:16px;margin-top:50px;
+  }
+  .razon{
+    perspective:1000px;height:180px;cursor:pointer;
+  }
+  .razon-int{
+    position:relative;width:100%;height:100%;
+    transition:transform .8s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d;
+  }
+  .razon.volteada .razon-int{transform:rotateY(180deg)}
+  .cara{
+    position:absolute;inset:0;backface-visibility:hidden;
+    border-radius:8px;padding:22px 18px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;gap:8px;border:1px solid rgba(232,197,106,.3);
+  }
+  .cara.frontal{
+    background:linear-gradient(150deg,rgba(126,16,48,.55),rgba(42,7,19,.9));
+    gap:14px;
+  }
+  .cara.frontal .num-razon{
+    font-family:var(--fuente-titulo);font-size:2.4rem;color:var(--oro);line-height:1;
+  }
+  .cara.frontal .pista{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,230,218,.6)}
+  .cara.atras{
+    background:linear-gradient(150deg,var(--crema),#f4e4cd);
+    color:#40101f;transform:rotateY(180deg);
+    font-family:var(--fuente-titulo);font-size:1.12rem;line-height:1.45;font-style:italic;
+  }
+
+  /* ---------- CARTA ---------- */
+  .sobre-zona{display:flex;flex-direction:column;align-items:center;gap:26px;margin-top:46px}
+  .sobre{
+    width:min(420px,88vw);height:270px;position:relative;cursor:pointer;
+    transition:transform .5s;
+  }
+  .sobre:hover{transform:translateY(-6px)}
+  .sobre .cuerpo{
+    position:absolute;inset:0;background:linear-gradient(160deg,#7a1030,#4b0a1d);
+    border:1px solid rgba(232,197,106,.45);border-radius:6px;
+    box-shadow:var(--sombra);overflow:hidden;
+  }
+  .sobre .cuerpo::before,.sobre .cuerpo::after{
+    content:"";position:absolute;top:0;width:0;height:0;
+    border-style:solid;
+  }
+  .sobre .cuerpo::before{
+    left:0;border-width:135px 210px 0 0;
+    border-color:rgba(232,197,106,.35) transparent transparent transparent;
+  }
+  .sobre .cuerpo::after{
+    right:0;border-width:135px 0 0 210px;
+    border-color:rgba(232,197,106,.35) transparent transparent transparent;
+  }
+  .sobre .solapa{
+    position:absolute;top:0;left:0;right:0;height:0;
+    border-style:solid;border-width:0 210px 135px 210px;
+    border-color:transparent transparent #6b0f2a transparent;
+    transform-origin:top;transition:transform .8s ease;z-index:4;
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,.3));
+  }
+  .sobre.abierto .solapa{transform:rotateX(180deg)}
+  .sobre .lacre{
+    position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);
+    width:56px;height:56px;border-radius:50%;
+    background:radial-gradient(circle at 32% 30%,#f7e3ae,#c9a13f);
+    display:flex;align-items:center;justify-content:center;
+    color:#4b0a1d;font-size:1.3rem;z-index:5;
+    box-shadow:0 6px 18px rgba(0,0,0,.45);transition:.5s;
+  }
+  .sobre.abierto .lacre{opacity:0;transform:translate(-50%,-50%) scale(1.6)}
+  .sobre .indicacion{
+    position:absolute;bottom:-34px;left:0;right:0;text-align:center;
+    font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(243,230,218,.6);
+  }
+
+  .carta{
+    width:min(720px,94vw);
+    background:linear-gradient(170deg,#fdf6ec,#f3e3cd);
+    color:#3b0e1c;border-radius:4px;padding:clamp(28px,6vw,56px);
+    box-shadow:var(--sombra);position:relative;
+    opacity:0;transform:translateY(30px) scale(.97);
+    transition:opacity .9s ease .3s, transform .9s cubic-bezier(.2,.7,.3,1) .3s;
+    display:none;
+    border:1px solid rgba(200,160,90,.5);
+  }
+  .carta.visible{display:block;opacity:1;transform:none}
+  .carta::before{
+    content:"";position:absolute;inset:10px;border:1px solid rgba(160,24,56,.25);
+    pointer-events:none;border-radius:2px;
+  }
+  .carta .para{
+    font-family:var(--fuente-script);font-size:clamp(1.9rem,5vw,2.6rem);
+    color:var(--vino);margin-bottom:16px;
+  }
+  .carta p{
+    font-family:var(--fuente-titulo);font-size:clamp(1.05rem,2.6vw,1.28rem);
+    line-height:1.95;margin-bottom:16px;color:#4a1223;
+  }
+  .carta .firma{
+    font-family:var(--fuente-script);font-size:clamp(1.7rem,5vw,2.3rem);
+    color:var(--rosa-viejo);text-align:right;margin-top:26px;
+  }
+  .carta .firma small{
+    display:block;font-family:var(--fuente-cuerpo);font-size:.68rem;
+    letter-spacing:.24em;text-transform:uppercase;color:rgba(74,18,35,.6);margin-top:6px;
+  }
+
+  /* ---------- CIERRE ---------- */
+  .cierre{text-align:center;padding-bottom:70px}
+  .corazon-final{
+    font-size:2.4rem;color:var(--oro);animation:latido 1.6s ease-in-out infinite;
+    display:inline-block;
+  }
+  .cierre .frase{
+    font-family:var(--fuente-script);font-size:clamp(1.7rem,5vw,2.6rem);
+    color:var(--oro-claro);margin-top:14px;
+  }
+  .cierre .ano{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(243,230,218,.5);margin-top:16px}
+
+  footer{
+    text-align:center;padding:26px;font-size:.68rem;letter-spacing:.16em;
+    color:rgba(243,230,218,.35);border-top:1px solid rgba(232,197,106,.14);
+  }
+  footer .credito-musica{
+    display:inline-block;margin-top:7px;
+    font-size:.56rem;letter-spacing:.1em;text-transform:none;
+    color:rgba(243,230,218,.28);
+  }
+
+  /* ---------- CONFETI ---------- */
+  #confeti{position:fixed;inset:0;pointer-events:none;z-index:70;display:none}
+
+  @media (max-width:600px){
+    section{padding:64px 18px}
+    .hero{padding:52px 16px 124px}
+    .timeline{padding-left:30px}
+    .hito::before{left:-30px}
+    .anios .txt{text-align:center}
+    .anios{flex-direction:column;gap:6px}
+    .anios .txt{text-align:center}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition-duration:.01ms !important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ============ PRELOADER ============ -->
+<div id="preloader">
+  <div class="corazon-carga">
+    <svg viewBox="0 0 32 29.6"><path fill="#e8c56a" d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2c6.1-8.8,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/></svg>
+  </div>
+  <p>Preparando tu sorpresa…</p>
+</div>
+
+<!-- ============ PÉTALOS ============ -->
+<canvas id="petalos"></canvas>
+<canvas id="confeti"></canvas>
+
+<!-- ============ MÚSICA ============ -->
+<!-- ✏️ EDITA 5 : pon el nombre de tu archivo de música en "src" (ej: musica.mp3) -->
+<button id="btnMusica" title="Música"><span>♪</span></button>
+<button id="btnPausa" title="Pausar o reanudar las fotos">⏸</button>
+<audio id="musica" loop preload="auto">
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+<!-- Reproductor de fondo: video oficial de YouTube (audio) -->
+<div id="ytFondo" aria-hidden="true"></div>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="marco-oro reveal">
+      <p class="saludo">Para el amor de mi vida</p>
+
+      <h1 class="nombres">
+        Juan Carlos
+        <span class="amp">&amp;</span>
+        Rachel
+      </h1>
+
+      <div class="anios">
+        <div class="num">4</div>
+        <div class="txt">
+          Años de
+          <b>Fiesta de Bodas</b>
+        </div>
+      </div>
+
+      <div class="linea-oro"></div>
+
+      <!-- ✏️ EDITA 1 : CAMBIA AQUÍ LA FECHA (Año, Mes-1, Día, Hora) -->
+      <!-- Meses van de 0 a 11 -> OCTUBRE = 9 -->
+      <div class="cuenta" id="cuenta"
+           data-anio="2026" data-mes="9" data-dia="15" data-hora="19" data-min="0">
+        <div class="caja-cuenta"><div class="valor" id="dias">--</div><div class="etiqueta">Días</div></div>
+        <div class="caja-cuenta"><div class="valor" id="horas">--</div><div class="etiqueta">Horas</div></div>
+        <div class="caja-cuenta"><div class="valor" id="minutos">--</div><div class="etiqueta">Minutos</div></div>
+        <div class="caja-cuenta"><div class="valor" id="segundos">--</div><div class="etiqueta">Segundos</div></div>
+      </div>
+
+      <p class="leyenda-fecha">Nuestra fiesta de bodas · <span>15 de Octubre</span></p>
+
+      <div class="aviso-bloqueo">
+        <span class="latido">🔒</span>
+        <span>Tu sorpresa se abre el <b>15 de Octubre</b></span>
+      </div>
+    </div>
+
+    <div class="scroll-indicador">
+      <span>Desliza</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- ============ NUESTRA HISTORIA ============ -->
+  <section>
+    <div class="centro reveal">
+      <span class="kicker">Nuestra historia</span>
+      <h2 class="titulo">Cuatro años celebrando <em>un sí</em></h2>
+      <div class="linea-oro"></div>
+      <p class="subtitulo">
+        Cada fecha es un recordatorio de que elegirnos fue la mejor decisión de nuestras vidas.
+      </p>
+    </div>
+
+    <!-- ✏️ EDITA 2 : ESCRIBE AQUÍ TUS MOMENTOS REALES -->
+    <div class="timeline">
+      <div class="hitos">
+        <div class="hito reveal">
+          <div class="fecha">El origen de todo</div>
+          <h3>El día que nuestros caminos se cruzaron</h3>
+          <p>Donde empezó esta historia que hoy seguimos escribiendo juntos, día a día.</p>
+        </div>
+        <div class="hito reveal">
+          <div class="fecha">Nuestro compromiso</div>
+          <h3>Cuando decidimos hacerlo oficial</h3>
+          <p>Un "sí" que convirtió un sueño en un plan de vida compartido.</p>
+        </div>
+        <div class="hito reveal">
+          <div class="fecha">15 de Octubre</div>
+          <h3>Nuestra fiesta de bodas</h3>
+          <p>El día que celebramos con todos los que amamos el comienzo de esta familia. La fecha que hoy conmemoramos.</p>
+        </div>
+        <div class="hito reveal">
+          <div class="fecha">Hoy · 4 años después</div>
+          <h3>Más enamorados que el primer día</h3>
+          <p>Con más risas, más aventuras y la certeza de que todavía nos quedan mil historias por vivir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALERÍA ============ -->
+  <section>
+    <div class="centro reveal">
+      <span class="kicker">Nuestros recuerdos</span>
+      <h2 class="titulo">Momentos que guardo <em>en el corazón</em></h2>
+      <div class="linea-oro"></div>
+      <p class="subtitulo">Un pedacito de nosotros en cada imagen.</p>
+    </div>
+
+    <!-- ✏️ PARA AGREGAR FOTOS: copia tus imágenes en la carpeta "fotos"
+         con estos nombres y listo (no toques el código):
+         fotos/1.jpg … fotos/6.jpg
+         Las tarjetas rotan SOLAS: 1 → 2 → 3 → 4 → 5 → 6 → 1 …        -->
+    <div class="galeria">
+      <div class="foto reveal">
+        <img class="capa" alt="Recuerdo 1"><img class="capa" alt="">
+        <div class="marco-fallback"><div class="icono">📷</div><div class="texto">Nuestro recuerdo</div><div class="pista">Cargando…</div></div>
+        <div class="pie-foto">Nuestro recuerdo<span>1 / 6</span></div>
+      </div>
+      <div class="foto reveal">
+        <img class="capa" alt="Recuerdo 2"><img class="capa" alt="">
+        <div class="marco-fallback"><div class="icono">💞</div><div class="texto">Un momento juntos</div><div class="pista">Cargando…</div></div>
+        <div class="pie-foto">Un momento juntos<span>2 / 6</span></div>
+      </div>
+      <div class="foto reveal">
+        <img class="capa" alt="Recuerdo 3"><img class="capa" alt="">
+        <div class="marco-fallback"><div class="icono">🥂</div><div class="texto">Nuestra celebración</div><div class="pista">Cargando…</div></div>
+        <div class="pie-foto">Nuestra celebración<span>3 / 6</span></div>
+      </div>
+      <div class="foto reveal">
+        <img class="capa" alt="Recuerdo 4"><img class="capa" alt="">
+        <div class="marco-fallback"><div class="icono">🌹</div><div class="texto">Risas y locuras</div><div class="pista">Cargando…</div></div>
+        <div class="pie-foto">Risas y locuras<span>4 / 6</span></div>
+      </div>
+      <div class="foto reveal">
+        <img class="capa" alt="Recuerdo 5"><img class="capa" alt="">
+        <div class="marco-fallback"><div class="icono">✈️</div><div class="texto">Nuestra aventura</div><div class="pista">Cargando…</div></div>
+        <div class="pie-foto">Nuestra aventura<span>5 / 6</span></div>
+      </div>
+      <div class="foto reveal">
+        <img class="capa" alt="Recuerdo 6"><img class="capa" alt="">
+        <div class="marco-fallback"><div class="icono">💍</div><div class="texto">Para siempre</div><div class="pista">Cargando…</div></div>
+        <div class="pie-foto">Para siempre<span>6 / 6</span></div>
+      </div>
+    </div>
+    <p class="galeria-nota">Tus recuerdos van cambiando solos ✨</p>
+  </section>
+
+  <!-- ============ RAZONES ============ -->
+  <section>
+    <div class="centro reveal">
+      <span class="kicker">Porque sí</span>
+      <h2 class="titulo">Razones por las que <em>te amo</em></h2>
+      <div class="linea-oro"></div>
+      <p class="subtitulo">Toca cada tarjeta y descubre lo que siento. Son más de las que caben aquí.</p>
+    </div>
+
+    <!-- ✏️ EDITA 3 : ESCRIBE TUS PROPIAS RAZONES EN CADA TARJETA (cara atras) -->
+    <div class="razones">
+      <div class="razon reveal" tabindex="0">
+        <div class="razon-int">
+          <div class="cara frontal"><div class="num-razon">01</div><div class="pista">Tócame</div></div>
+          <div class="cara atras">Porque tu sonrisa sigue siendo lo primero que busco cada mañana.</div>
+        </div>
+      </div>
+      <div class="razon reveal" tabindex="0">
+        <div class="razon-int">
+          <div class="cara frontal"><div class="num-razon">02</div><div class="pista">Tócame</div></div>
+          <div class="cara atras">Porque contigo hasta los días difíciles se vuelven llevaderos.</div>
+        </div>
+      </div>
+      <div class="razon reveal" tabindex="0">
+        <div class="razon-int">
+          <div class="cara frontal"><div class="num-razon">03</div><div class="pista">Tócame</div></div>
+          <div class="cara atras">Porque eres mi mejor amiga, mi cómplice y mi refugio.</div>
+        </div>
+      </div>
+      <div class="razon reveal" tabindex="0">
+        <div class="razon-int">
+          <div class="cara frontal"><div class="num-razon">04</div><div class="pista">Tócame</div></div>
+          <div class="cara atras">Porque hacemos un equipo increíble en todo lo que emprendemos.</div>
+        </div>
+      </div>
+      <div class="razon reveal" tabindex="0">
+        <div class="razon-int">
+          <div class="cara frontal"><div class="num-razon">05</div><div class="pista">Tócame</div></div>
+          <div class="cara atras">Porque tu risa es mi sonido favorito en el mundo.</div>
+        </div>
+      </div>
+      <div class="razon reveal" tabindex="0">
+        <div class="razon-int">
+          <div class="cara frontal"><div class="num-razon">06</div><div class="pista">Tócame</div></div>
+          <div class="cara atras">Porque me haces querer ser mejor persona cada día.</div>
+        </div>
+      </div>
+      <div class="razon reveal" tabindex="0">
+        <div class="razon-int">
+          <div class="cara frontal"><div class="num-razon">07</div><div class="pista">Tócame</div></div>
+          <div class="cara atras">Porque a tu lado descubrí qué significa hogar.</div>
+        </div>
+      </div>
+      <div class="razon reveal" tabindex="0">
+        <div class="razon-int">
+          <div class="cara frontal"><div class="num-razon">08</div><div class="pista">Tócame</div></div>
+          <div class="cara atras">Porque después de 4 años sigo eligiéndote, y lo seguiré haciendo siempre.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CARTA ============ -->
+  <section class="centro">
+    <div class="reveal">
+      <span class="kicker">Para ti</span>
+      <h2 class="titulo">Tengo algo que <em>decirte</em></h2>
+      <div class="linea-oro"></div>
+    </div>
+
+    <div class="sobre-zona reveal">
+      <div class="sobre" id="sobre">
+        <div class="cuerpo"></div>
+        <div class="solapa"></div>
+        <div class="lacre">♥</div>
+        <div class="indicacion">Toca el sobre para abrirlo</div>
+      </div>
+
+      <!-- ✏️ EDITA 4 : AQUÍ VA TU CARTA / DEDICATORIA -->
+      <div class="carta" id="carta">
+        <div class="para">Mi Rachel:</div>
+        <p>
+          Hoy no solo celebramos una fecha: celebramos todo lo que construimos desde ese
+          <strong>15 de octubre</strong>, cuando dimos el paso más hermoso de nuestra vida.
+        </p>
+        <p>
+          Cuatro años después, sigo agradecido contigo cada mañana. Gracias por tu paciencia,
+          por tu risa, por cada abrazo que llega justo cuando lo necesito. Contigo aprendí que
+          el amor no es solo un sentimiento: es una decisión que se renueva todos los días.
+        </p>
+        <p>
+          Si pudiera volver a elegir, volvería a buscarte en cada vida. Gracias por decir que sí,
+          por compartirme tu tiempo, tus sueños y tu corazón.
+        </p>
+        <p>
+          Que estos cuatro años sean solo el comienzo de una historia muchísimo más larga.
+          <strong>Te amo hoy, te amo siempre.</strong>
+        </p>
+        <div class="firma">
+          Con todo mi amor, Juan Carlos
+          <small>15 de Octubre · 4 Aniversario de Fiesta de Bodas</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CIERRE ============ -->
+  <section class="cierre reveal">
+    <span class="corazon-final">♥</span>
+    <p class="frase">Feliz fiesta de bodas, Princesita</p>
+    <p class="ano">Juan Carlos &amp; Rachel · 2026</p>
+  </section>
+
+</main>
+
+<footer>
+  Hecho con amor por Juan Carlos para Rachel ♥<br>
+  <span class="credito-musica">Música: “Flowers” by FSCM Productions · CC BY 4.0 · free-stock-music.com</span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============ PRELOADER ============ */
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      document.getElementById('preloader').classList.add('oculto');
+      document.querySelectorAll('.hero .reveal').forEach(function(el,i){
+        setTimeout(function(){ el.classList.add('visible'); }, i*220);
+      });
+    }, 900);
+  });
+  // Respaldo por si load tarda
+  setTimeout(function(){
+    document.getElementById('preloader').classList.add('oculto');
+  }, 3500);
+
+  /* ============ CUENTA REGRESIVA ============ */
+  var c = document.getElementById('cuenta');
+  // ✏️ EDITA 1 (misma fecha de arriba)
+  var objetivo = new Date(
+    +c.dataset.anio,
+    +c.dataset.mes,
+    +c.dataset.dia,
+    +c.dataset.hora,
+    +c.dataset.min,
+    0
+  );
+
+  /* ---- VISTA BLOQUEADA: mientras llegue la fecha SOLO se ve la cuenta
+         regresiva. Al llegar a cero se desbloquea y ella puede deslizar.
+         Para PREVER la página completa: agrega ?vista=todo al final
+         (ejemplo: index.html?vista=todo)                              ---- */
+  var vistaCompleta = /(\?|&)vista=todo/.test(location.search) || location.hash === '#todo';
+
+  function bloquear(){
+    if (vistaCompleta) return;
+    if ((objetivo - new Date()) > 0) document.body.classList.add('bloqueado');
+  }
+  function desbloquear(){
+    if (!document.body.classList.contains('bloqueado')) return;
+    document.body.classList.remove('bloqueado');
+    var ind = document.querySelector('.scroll-indicador span');
+    if (ind) ind.textContent = 'Desliza tu sorpresa';
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  bloquear();
+
+  function pad(n){ return n < 10 ? '0'+n : ''+n; }
+
+  function pintar(){
+    var ahora = new Date();
+    var dif = objetivo - ahora;
+
+    if (dif <= 0){
+      document.getElementById('dias').textContent = '00';
+      document.getElementById('horas').textContent = '00';
+      document.getElementById('minutos').textContent = '00';
+      document.getElementById('segundos').textContent = '00';
+      var ley = document.querySelector('.leyenda-fecha');
+      if (ley) ley.innerHTML = '¡Hoy celebramos! <span>Nos casamos con el corazón</span> 🥂';
+      clearInterval(temporizador);
+      desbloquear();
+      lanzarConfeti();
+      return;
+    }
+
+    var s = Math.floor(dif/1000);
+    document.getElementById('dias').textContent    = pad(Math.floor(s/86400));
+    document.getElementById('horas').textContent   = pad(Math.floor(s%86400/3600));
+    document.getElementById('minutos').textContent = pad(Math.floor(s%3600/60));
+    document.getElementById('segundos').textContent= pad(s%60);
+  }
+  pintar();
+  var temporizador = setInterval(pintar, 1000);
+
+  /* ============ REVEAL AL HACER SCROLL ============ */
+  var io = new IntersectionObserver(function(entradas){
+    entradas.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, {threshold:.14, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* ============ PÉTALOS CAYENDO ============ */
+  var cv = document.getElementById('petalos'), ctx = cv.getContext('2d');
+  var petalos = [], W, H;
+  function medir(){
+    W = cv.width = window.innerWidth;
+    H = cv.height = window.innerHeight;
+  }
+  medir();
+  window.addEventListener('resize', medir);
+
+  var colores = ['rgba(232,197,106,', 'rgba(200,60,95,', 'rgba(247,227,174,', 'rgba(160,24,56,'];
+  function nuevoPetalo(inicial){
+    return {
+      x: Math.random()*W,
+      y: inicial ? Math.random()*H : -20,
+      r: 4 + Math.random()*7,
+      vy: .35 + Math.random()*.85,
+      vx: -.5 + Math.random(),
+      giro: Math.random()*Math.PI,
+      vg: (-.02 + Math.random()*.04),
+      c: colores[Math.floor(Math.random()*colores.length)],
+      a: .28 + Math.random()*.42
+    };
+  }
+  for(var i=0;i<38;i++) petalos.push(nuevoPetalo(true));
+
+  function pintarPetalos(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<petalos.length;i++){
+      var p = petalos[i];
+      p.y += p.vy; p.x += p.vx + Math.sin(p.y/70)*.4; p.giro += p.vg;
+      if(p.y > H+25) petalos[i] = p = nuevoPetalo(false);
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.giro);
+      ctx.beginPath();
+      ctx.ellipse(0,0,p.r,p.r*.6,0,0,Math.PI*2);
+      ctx.fillStyle = p.c + p.a + ')';
+      ctx.fill();
+      ctx.restore();
+    }
+    requestAnimationFrame(pintarPetalos);
+  }
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) pintarPetalos();
+
+  /* ============ GALERÍA CON ROTACIÓN AUTOMÁTICA ============ */
+  /* ✏️ EDITA 6 : cambia CICLO (ms que dura cada foto) y los textos
+                 del pie de foto. El orden de fotos es 1→2→3→4→5→6.   */
+  var FOTOS = [
+    {src:'fotos/1.jpg', texto:'Nuestro recuerdo'},
+    {src:'fotos/2.jpg', texto:'Un momento juntos'},
+    {src:'fotos/3.jpg', texto:'Nuestra celebración'},
+    {src:'fotos/4.jpg', texto:'Risas y locuras'},
+    {src:'fotos/5.jpg', texto:'Nuestra aventura'},
+    {src:'fotos/6.jpg', texto:'Para siempre'}
+  ];
+  var CICLO = 4200;   // milisegundos que se ve cada foto
+  var ONDA  = 170;    // retardo entre tarjetas (efecto ola)
+
+  var tarjetas = Array.prototype.slice.call(document.querySelectorAll('.foto'));
+  var estado   = tarjetas.map(function(_, i){ return i % FOTOS.length; });
+  var temporizadorGaleria = null;
+  var galeriaPausada = false;
+
+  // precarga de todas las fotos
+  FOTOS.forEach(function(f){ var im = new Image(); im.src = f.src; });
+
+  function cambiarFoto(t, i, num){
+    var f = FOTOS[num];
+    var capas = t.querySelectorAll('.capa');
+    var actual = t.querySelector('.capa.on');
+    var nueva = (!actual) ? capas[0] : (actual === capas[0] ? capas[1] : capas[0]);
+    var fb = t.querySelector('.marco-fallback');
+
+    if (fb) nueva.onload = function(){ fb.classList.add('oculto'); };
+    nueva.src = f.src;
+    nueva.classList.remove('on');
+    void nueva.offsetWidth;              // reinicia la animación
+    nueva.classList.add('on');
+    if (actual && actual !== nueva) actual.classList.remove('on');
+    if (nueva.complete && fb) fb.classList.add('oculto');
+
+    var pie = t.querySelector('.pie-foto');
+    if (pie){
+      pie.style.opacity = 0;
+      setTimeout(function(){
+        pie.innerHTML = f.texto + '<span>' + (num + 1) + ' / ' + FOTOS.length + '</span>';
+        pie.style.opacity = 1;
+      }, 300);
+    }
+  }
+
+  // primer pintado: cada tarjeta empieza con su foto (la cuadrícula se ve variada)
+  tarjetas.forEach(function(t, i){ cambiarFoto(t, i, estado[i]); });
+
+  function avanzar(){
+    tarjetas.forEach(function(t, i){
+      setTimeout(function(){
+        if (galeriaPausada) return;
+        estado[i] = (estado[i] + 1) % FOTOS.length;
+        cambiarFoto(t, i, estado[i]);
+      }, i * ONDA);
+    });
+  }
+  function arrancarGaleria(){
+    if (temporizadorGaleria) return;
+    temporizadorGaleria = setInterval(avanzar, CICLO);
+  }
+  function pausarGaleria(){
+    clearInterval(temporizadorGaleria);
+    temporizadorGaleria = null;
+  }
+  arrancarGaleria();
+
+  // botón ⏸ de la esquina: pausa / reanuda la rotación
+  var btnPausa = document.getElementById('btnPausa');
+  btnPausa.addEventListener('click', function(){
+    galeriaPausada = !galeriaPausada;
+    tarjetas.forEach(function(t){ t.classList.toggle('enpausa', galeriaPausada); });
+    if (galeriaPausada){ pausarGaleria(); btnPausa.textContent = '▶'; btnPausa.title = 'Reanudar las fotos'; }
+    else { arrancarGaleria(); btnPausa.textContent = '⏸'; btnPausa.title = 'Pausar las fotos'; }
+  });
+
+  /* ============ TARJETAS DE RAZONES ============ */
+  document.querySelectorAll('.razon').forEach(function(r){
+    function voltea(){ r.classList.toggle('volteada'); }
+    r.addEventListener('click', voltea);
+    r.addEventListener('keydown', function(ev){
+      if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); voltea(); }
+    });
+  });
+
+  /* ============ SOBRE / CARTA ============ */
+  var sobre = document.getElementById('sobre'), carta = document.getElementById('carta');
+  sobre.addEventListener('click', function(){
+    sobre.classList.add('abierto');
+    setTimeout(function(){
+      carta.classList.add('visible');
+      carta.scrollIntoView({behavior:'smooth', block:'center'});
+    }, 650);
+  });
+
+  /* ============ MÚSICA DE FONDO ============ */
+  /* ✏️ EDITA 7 : cambia YOUTUBE_ID por la canción que quieras.
+       Es lo que va después de "v=" en el link de YouTube.
+       Actual: Ed Sheeran — "Perfect" (video OFICIAL del canal de Ed Sheeran).
+       Si no hay internet, la página usa en su lugar el archivo musica.mp3.  */
+  var YOUTUBE_ID = '2Vv-BfVoq4g';
+
+  var audio = document.getElementById('musica');
+  var btn = document.getElementById('btnMusica');
+  var yt = null, ytListo = false, ytFallo = false;
+  var fuente = 'yt';        // 'yt' = YouTube · 'mp3' = archivo local
+  var sonando = false;
+
+  window.onYouTubeIframeAPIReady = function(){
+    if (ytFallo || yt || !window.YT) return;
+    yt = new YT.Player('ytFondo', {
+      videoId: YOUTUBE_ID,
+      playerVars: {
+        autoplay:0, controls:0, disablekb:1, modestbranding:1, rel:0,
+        playsinline:1, loop:1, playlist:YOUTUBE_ID
+      },
+      events: {
+        onReady: function(){
+          ytListo = true;
+          try { yt.setVolume(55); } catch(e){}
+          if (sonando && fuente === 'yt') yt.playVideo();
+        },
+        onStateChange: function(e){
+          if (window.YT && e.data === YT.PlayerState.ENDED) yt.playVideo();
+        }
+      }
+    });
+  };
+  var apiYT = document.createElement('script');
+  apiYT.src = 'https://www.youtube.com/iframe_api';
+  apiYT.onerror = function(){ ytFallo = true; };
+  document.head.appendChild(apiYT);
+
+  function sonarMP3(silencioso){
+    fuente = 'mp3';
+    audio.volume = .55;
+    var p = audio.play();
+    if (p && p.then){
+      p.then(function(){ btn.classList.add('girando'); })
+       .catch(function(){
+         if (!silencioso){
+           alert('No pude cargar la música. Revisa tu conexión o el archivo "musica.mp3".');
+         }
+       });
+    } else {
+      btn.classList.add('girando');
+    }
+  }
+
+  function reproducir(silencioso){
+    sonando = true;
+    btn.classList.add('girando');
+
+    if (fuente === 'mp3'){ sonarMP3(silencioso); return; }
+    if (ytListo){ try{ yt.playVideo(); }catch(e){} return; }
+    if (ytFallo){ sonarMP3(silencioso); return; }
+
+    // YouTube todavía cargando: esperamos hasta 5 segundos
+    var t = setInterval(function(){
+      if (ytListo){
+        clearInterval(t);
+        if (sonando && fuente === 'yt'){ try{ yt.playVideo(); }catch(e){} }
+      } else if (ytFallo){
+        clearInterval(t);
+        sonarMP3(silencioso);
+      }
+    }, 250);
+    setTimeout(function(){
+      if (!ytListo){
+        clearInterval(t);
+        if (sonando) sonarMP3(silencioso);
+      }
+    }, 5000);
+  }
+
+  function pararMusica(){
+    sonando = false;
+    btn.classList.remove('girando');
+    if (ytListo){ try{ yt.pauseVideo(); }catch(e){} }
+    audio.pause();
+  }
+
+  btn.addEventListener('click', function(){
+    if (sonando) pararMusica(); else reproducir(false);
+  });
+
+  /* Los navegadores NO permiten que el audio suene solo: arranca con el
+     primer toque/clic de ella en la pantalla.                          */
+  function primerToque(){
+    reproducir(true);
+    document.removeEventListener('pointerdown', primerToque);
+    document.removeEventListener('keydown', primerToque);
+    document.removeEventListener('touchstart', primerToque);
+  }
+  document.addEventListener('pointerdown', primerToque);
+  document.addEventListener('keydown', primerToque);
+  document.addEventListener('touchstart', primerToque, {passive:true});
+
+  /* ============ CONFETI ============ */
+  function lanzarConfeti(){
+    var cc = document.getElementById('confeti');
+    cc.style.display = 'block';
+    var cx = cc.getContext('2d');
+    cc.width = window.innerWidth; cc.height = window.innerHeight;
+    var piezas = [], colores2 = ['#e8c56a','#f7e3ae','#c02b4f','#fdf6ec','#a01838'];
+    for(var i=0;i<160;i++){
+      piezas.push({
+        x:Math.random()*cc.width, y:-20-Math.random()*cc.height*.5,
+        w:5+Math.random()*7, h:8+Math.random()*10,
+        vy:1.6+Math.random()*3, vx:-1.4+Math.random()*2.8,
+        g:Math.random()*6, vg:-.12+Math.random()*.24,
+        c:colores2[i%colores2.length]
+      });
+    }
+    (function animar(){
+      cx.clearRect(0,0,cc.width,cc.height);
+      var vivas = 0;
+      piezas.forEach(function(p){
+        p.y += p.vy; p.x += p.vx; p.g += p.vg;
+        if(p.y < cc.height+30) vivas++;
+        cx.save(); cx.translate(p.x,p.y); cx.rotate(p.g);
+        cx.fillStyle = p.c; cx.fillRect(-p.w/2,-p.h/2,p.w,p.h); cx.restore();
+      });
+      if(vivas > 0) requestAnimationFrame(animar);
+      else cc.style.display = 'none';
+    })();
+  }
+
+})();
+</script>
+</body>
+</html>
