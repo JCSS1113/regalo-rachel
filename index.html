@@ -91,13 +91,6 @@
   #btnMusica.girando span{display:inline-block;animation:rotar 4s linear infinite}
   @keyframes rotar{to{transform:rotate(360deg)}}
 
-  /* ---------- REPRODUCTOR DE FONDO (video oficial de YouTube) ---------- */
-  #ytFondo{
-    position:fixed;right:0;bottom:0;
-    width:220px;height:124px;
-    opacity:.001;pointer-events:none;z-index:0;overflow:hidden;
-  }
-
   /* ---------- BOTÓN PAUSA DE LA GALERÍA ---------- */
   #btnPausa{
     position:fixed;top:80px;right:18px;z-index:60;
@@ -142,12 +135,12 @@
   /* ---------- HERO ---------- */
   .hero{
     min-height:100svh;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;text-align:center;
-    padding:58px 22px 150px;position:relative;
+    align-items:center;justify-content:flex-start;text-align:center;
+    padding:clamp(26px,7vh,84px) 20px 44px;position:relative;
   }
   .marco-oro{
     border:1px solid rgba(232,197,106,.35);
-    padding:clamp(28px,6vw,56px) clamp(20px,7vw,74px);
+    padding:clamp(16px,3.4vh,40px) clamp(16px,5vw,64px);
     border-radius:4px;position:relative;
     background:radial-gradient(circle at 50% 0%, rgba(232,197,106,.10), transparent 70%);
     box-shadow:var(--sombra);
@@ -163,12 +156,12 @@
 
   .saludo{
     font-family:var(--fuente-script);
-    font-size:clamp(1.5rem,4vw,2.2rem);color:var(--oro-claro);
+    font-size:clamp(1.2rem,3.4vh,2.2rem);color:var(--oro-claro);
     margin-bottom:6px;
   }
   .nombres{
     font-family:var(--fuente-titulo);
-    font-size:clamp(2.6rem,9vw,5.4rem);
+    font-size:clamp(1.9rem,7vh,5.4rem);
     font-weight:700;line-height:1.02;color:var(--crema);
     text-shadow:0 4px 30px rgba(0,0,0,.5);
   }
@@ -181,7 +174,7 @@
     flex-wrap:wrap;
   }
   .anios .num{
-    font-family:var(--fuente-titulo);font-size:clamp(3rem,10vw,5rem);
+    font-family:var(--fuente-titulo);font-size:clamp(2.1rem,7.5vh,5rem);
     color:var(--oro);line-height:1;font-weight:700;
     text-shadow:0 0 40px rgba(232,197,106,.45);
   }
@@ -193,17 +186,17 @@
 
   /* ---------- CUENTA REGRESIVA ---------- */
   .cuenta{
-    margin-top:34px;display:flex;gap:clamp(8px,2.5vw,22px);justify-content:center;flex-wrap:wrap;
+    margin-top:clamp(18px,3vh,34px);display:flex;gap:clamp(8px,2.5vw,22px);justify-content:center;flex-wrap:wrap;
   }
   .caja-cuenta{
     min-width:clamp(70px,19vw,104px);
     background:rgba(10,2,6,.55);
     border:1px solid rgba(232,197,106,.32);
-    border-radius:6px;padding:14px 8px;
+    border-radius:6px;padding:12px 8px;
     box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
   }
   .caja-cuenta .valor{
-    font-family:var(--fuente-titulo);font-size:clamp(1.9rem,6vw,2.9rem);
+    font-family:var(--fuente-titulo);font-size:clamp(1.5rem,4.8vh,2.9rem);
     font-weight:700;color:var(--oro);line-height:1;
     font-variant-numeric:tabular-nums;
   }
@@ -212,7 +205,7 @@
     color:rgba(243,230,218,.65);margin-top:7px;
   }
   .leyenda-fecha{
-    margin-top:26px;font-family:var(--fuente-titulo);font-style:italic;
+    margin-top:clamp(16px,2.6vh,26px);font-family:var(--fuente-titulo);font-style:italic;
     font-size:clamp(1rem,3vw,1.3rem);color:rgba(243,230,218,.85);
   }
   .leyenda-fecha span{color:var(--oro);font-weight:600;font-style:normal}
@@ -236,7 +229,7 @@
   body.bloqueado .scroll-indicador{display:none}
 
   .aviso-bloqueo{
-    display:none;margin-top:26px;
+    display:none;margin-top:clamp(16px,2.6vh,26px);
     font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;
     color:rgba(243,230,218,.78);
     border:1px solid rgba(232,197,106,.42);border-radius:40px;
@@ -491,7 +484,7 @@
 
   @media (max-width:600px){
     section{padding:64px 18px}
-    .hero{padding:52px 16px 124px}
+    .hero{padding:clamp(30px,7vh,64px) 16px 48px}
     .timeline{padding-left:30px}
     .hito::before{left:-30px}
     .anios .txt{text-align:center}
@@ -523,11 +516,11 @@
 <!-- ✏️ EDITA 5 : pon el nombre de tu archivo de música en "src" (ej: musica.mp3) -->
 <button id="btnMusica" title="Música"><span>♪</span></button>
 <button id="btnPausa" title="Pausar o reanudar las fotos">⏸</button>
-<audio id="musica" loop preload="auto">
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
-<!-- Reproductor de fondo: video oficial de YouTube (audio) -->
-<div id="ytFondo" aria-hidden="true"></div>
+<!-- ✏️ EDITA 5 : LAS DOS CANCIONES (colócalas en la carpeta "musica")
+     musica/cancion-cuenta.mp3  → suena mientras corre la cuenta regresiva
+     musica/cancion-final.mp3   → suena cuando llega a cero (15 de octubre)
+     Si falta alguna, se usa "musica.mp3" de respaldo.                 -->
+<audio id="musica" loop preload="auto"></audio>
 
 <main>
 
@@ -846,6 +839,7 @@
       if (ley) ley.innerHTML = '¡Hoy celebramos! <span>Nos casamos con el corazón</span> 🥂';
       clearInterval(temporizador);
       desbloquear();
+      cambiarAFaseFinal();      // cambia a la 2ª canción
       lanzarConfeti();
       return;
     }
@@ -1010,53 +1004,51 @@
     }, 650);
   });
 
-  /* ============ MÚSICA DE FONDO ============ */
-  /* ✏️ EDITA 7 : cambia YOUTUBE_ID por la canción que quieras.
-       Es lo que va después de "v=" en el link de YouTube.
-       Actual: Ed Sheeran — "Perfect" (video OFICIAL del canal de Ed Sheeran).
-       Si no hay internet, la página usa en su lugar el archivo musica.mp3.  */
-  var YOUTUBE_ID = '2Vv-BfVoq4g';
+  /* ============ MÚSICA DE FONDO (dos canciones) ============ */
+  /* ✏️ EDITA 5 : LAS DOS CANCIONES — pónlas en la carpeta "musica"
+       musica/cancion-cuenta.mp3  → mientras corre la cuenta regresiva
+       musica/cancion-final.mp3   → cuando llega a cero (15 de octubre)
+       Si falta alguna, se usa "musica.mp3" como respaldo.             */
+  var CANCION_CUENTA = 'musica/cancion-cuenta.mp3';
+  var CANCION_FINAL  = 'musica/cancion-final.mp3';
+  var RESPALDO       = 'musica.mp3';
 
   var audio = document.getElementById('musica');
   var btn = document.getElementById('btnMusica');
-  var yt = null, ytListo = false, ytFallo = false;
-  var fuente = 'yt';        // 'yt' = YouTube · 'mp3' = archivo local
   var sonando = false;
+  var fase = 'cuenta';          // 'cuenta' → corre el reloj · 'final' → llegó a cero
+  var intento = 0;
 
-  window.onYouTubeIframeAPIReady = function(){
-    if (ytFallo || yt || !window.YT) return;
-    yt = new YT.Player('ytFondo', {
-      videoId: YOUTUBE_ID,
-      playerVars: {
-        autoplay:0, controls:0, disablekb:1, modestbranding:1, rel:0,
-        playsinline:1, loop:1, playlist:YOUTUBE_ID
-      },
-      events: {
-        onReady: function(){
-          ytListo = true;
-          try { yt.setVolume(55); } catch(e){}
-          if (sonando && fuente === 'yt') yt.playVideo();
-        },
-        onStateChange: function(e){
-          if (window.YT && e.data === YT.PlayerState.ENDED) yt.playVideo();
-        }
-      }
-    });
-  };
-  var apiYT = document.createElement('script');
-  apiYT.src = 'https://www.youtube.com/iframe_api';
-  apiYT.onerror = function(){ ytFallo = true; };
-  document.head.appendChild(apiYT);
+  function listaDeFase(){
+    var principal = (fase === 'final') ? CANCION_FINAL : CANCION_CUENTA;
+    return (principal === RESPALDO) ? [RESPALDO] : [principal, RESPALDO];
+  }
+  function preparar(){
+    var l = listaDeFase();
+    intento = 0;
+    audio.src = l[0];
+    audio.load();
+  }
 
-  function sonarMP3(silencioso){
-    fuente = 'mp3';
+  // si la canción principal no existe, probamos con el respaldo
+  audio.addEventListener('error', function(){
+    var l = listaDeFase();
+    if (intento < l.length - 1){
+      intento++;
+      audio.src = l[intento];
+      audio.load();
+      if (sonando) lanzar(true);
+    }
+  });
+
+  function lanzar(silencioso){
     audio.volume = .55;
     var p = audio.play();
     if (p && p.then){
       p.then(function(){ btn.classList.add('girando'); })
        .catch(function(){
          if (!silencioso){
-           alert('No pude cargar la música. Revisa tu conexión o el archivo "musica.mp3".');
+           alert('No pude reproducir la música.\nPon tus canciones en la carpeta "musica":\ncancion-cuenta.mp3 y cancion-final.mp3');
          }
        });
     } else {
@@ -1066,35 +1058,23 @@
 
   function reproducir(silencioso){
     sonando = true;
-    btn.classList.add('girando');
-
-    if (fuente === 'mp3'){ sonarMP3(silencioso); return; }
-    if (ytListo){ try{ yt.playVideo(); }catch(e){} return; }
-    if (ytFallo){ sonarMP3(silencioso); return; }
-
-    // YouTube todavía cargando: esperamos hasta 5 segundos
-    var t = setInterval(function(){
-      if (ytListo){
-        clearInterval(t);
-        if (sonando && fuente === 'yt'){ try{ yt.playVideo(); }catch(e){} }
-      } else if (ytFallo){
-        clearInterval(t);
-        sonarMP3(silencioso);
-      }
-    }, 250);
-    setTimeout(function(){
-      if (!ytListo){
-        clearInterval(t);
-        if (sonando) sonarMP3(silencioso);
-      }
-    }, 5000);
+    if (!audio.src) preparar();
+    lanzar(silencioso);
   }
-
   function pararMusica(){
     sonando = false;
     btn.classList.remove('girando');
-    if (ytListo){ try{ yt.pauseVideo(); }catch(e){} }
     audio.pause();
+  }
+
+  // cambia a la canción del final cuando la cuenta regresiva llega a cero
+  function cambiarAFaseFinal(){
+    if (typeof audio === 'undefined' || !audio) return;   // aún no está listo
+    if (fase === 'final') return;
+    fase = 'final';
+    var estabaSonando = sonando;
+    preparar();
+    if (estabaSonando) lanzar(true);
   }
 
   btn.addEventListener('click', function(){
@@ -1112,6 +1092,9 @@
   document.addEventListener('pointerdown', primerToque);
   document.addEventListener('keydown', primerToque);
   document.addEventListener('touchstart', primerToque, {passive:true});
+
+  // si la cuenta regresiva ya terminó al abrir la página, va directo a la 2ª
+  if ((objetivo - new Date()) <= 0) fase = 'final';
 
   /* ============ CONFETI ============ */
   function lanzarConfeti(){
