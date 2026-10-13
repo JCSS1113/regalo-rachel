@@ -21,7 +21,7 @@ Abre `index.html` con el Bloc de notas o VS Code y busca estos textos:
 
 | Buscar | Qué cambia |
 |---|---|
-| `EDITA 1` | **Fecha y hora** de la cuenta regresiva (ya está en 15/oct/2026 19:00) |
+| `EDITA 1` | **Fecha y hora** de la cuenta regresiva (ya está en **15/oct/2026 00:00**) |
 | `EDITA 2` | Los 4 momentos de la **línea de tiempo** (pon tus fechas reales) |
 | `EDITA 3` | Las **razones** de las tarjetas (son ejemplos, cámbialas por las tuyas) |
 | `EDITA 4` | La **carta / dedicatoria** final |
