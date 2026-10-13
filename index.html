@@ -103,6 +103,19 @@
   }
   #btnPausa:hover{background:var(--oro);color:#2a0713;transform:scale(1.08)}
 
+  /* ---------- BOTÓN DE PRUEBA (solo en modo vista previa) ---------- */
+  #btnPrueba{
+    position:fixed;top:142px;right:18px;z-index:60;
+    width:52px;height:52px;border-radius:50%;
+    background:rgba(20,4,11,.7);border:1px dashed rgba(232,197,106,.6);
+    color:var(--oro);font-size:17px;cursor:pointer;
+    backdrop-filter:blur(8px);display:none;
+    align-items:center;justify-content:center;
+    transition:.3s;
+  }
+  #btnPrueba:hover{background:var(--oro);color:#2a0713;transform:scale(1.08)}
+  body.vista-todo #btnPrueba{display:flex}
+
   /* ---------- CONTENIDO ---------- */
   main{position:relative;z-index:3}
   section{padding:90px 22px;max-width:1120px;margin:0 auto}
@@ -516,6 +529,7 @@
 <!-- ✏️ EDITA 5 : pon el nombre de tu archivo de música en "src" (ej: musica.mp3) -->
 <button id="btnMusica" title="Música"><span>♪</span></button>
 <button id="btnPausa" title="Pausar o reanudar las fotos">⏸</button>
+<button id="btnPrueba" title="Probar lo que pasará el 15 de octubre">🧪</button>
 <!-- ✏️ EDITA 5 : LAS DOS CANCIONES (colócalas en la carpeta "musica")
      musica/cancion-cuenta.mp3  → suena mientras corre la cuenta regresiva
      musica/cancion-final.mp3   → suena cuando llega a cero (15 de octubre)
@@ -826,23 +840,26 @@
 
   function pad(n){ return n < 10 ? '0'+n : ''+n; }
 
+  /* todo lo que pasa cuando el reloj llega a cero (también lo usa
+     el botón 🧪 de prueba) */
+  function llegarACero(){
+    document.getElementById('dias').textContent = '00';
+    document.getElementById('horas').textContent = '00';
+    document.getElementById('minutos').textContent = '00';
+    document.getElementById('segundos').textContent = '00';
+    var ley = document.querySelector('.leyenda-fecha');
+    if (ley) ley.innerHTML = '¡Hoy celebramos! <span>Nos casamos con el corazón</span> 🥂';
+    clearInterval(temporizador);
+    desbloquear();
+    cambiarAFaseFinal();      // cambia a la 2ª canción (Carlos Rivera)
+    lanzarConfeti();
+  }
+
   function pintar(){
     var ahora = new Date();
     var dif = objetivo - ahora;
 
-    if (dif <= 0){
-      document.getElementById('dias').textContent = '00';
-      document.getElementById('horas').textContent = '00';
-      document.getElementById('minutos').textContent = '00';
-      document.getElementById('segundos').textContent = '00';
-      var ley = document.querySelector('.leyenda-fecha');
-      if (ley) ley.innerHTML = '¡Hoy celebramos! <span>Nos casamos con el corazón</span> 🥂';
-      clearInterval(temporizador);
-      desbloquear();
-      cambiarAFaseFinal();      // cambia a la 2ª canción
-      lanzarConfeti();
-      return;
-    }
+    if (dif <= 0){ llegarACero(); return; }
 
     var s = Math.floor(dif/1000);
     document.getElementById('dias').textContent    = pad(Math.floor(s/86400));
@@ -852,6 +869,24 @@
   }
   pintar();
   var temporizador = setInterval(pintar, 1000);
+
+  /* ============ BOTÓN 🧪 DE PRUEBA DEL 15 DE OCTUBRE ============
+     Solo se muestra con ?vista=todo  (NUNCA lo verá ella).
+     Simula el fin de la cuenta regresiva: confeti + cambio de canción. */
+  if (vistaCompleta) document.body.classList.add('vista-todo');
+
+  var btnPrueba = document.getElementById('btnPrueba');
+  var pruebaHecha = false;
+  btnPrueba.addEventListener('click', function(){
+    if (!pruebaHecha){
+      pruebaHecha = true;
+      llegarACero();                       // confeti + desbloqueo + 2ª canción
+      btnPrueba.textContent = '↺';
+      btnPrueba.title = 'Reiniciar la prueba';
+    } else {
+      location.reload();                   // vuelve a la cuenta regresiva real
+    }
+  });
 
   /* ============ REVEAL AL HACER SCROLL ============ */
   var io = new IntersectionObserver(function(entradas){
