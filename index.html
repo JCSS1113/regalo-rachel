@@ -888,6 +888,27 @@
     }
   });
 
+  /* ===== ATAJO: 3 clics seguidos sobre el número "4" =====
+     Activa el modo de prueba SIN necesitar ningún link. */
+  var numAnios = document.querySelector('.anios .num');
+  var clics = 0, ultimoClic = 0;
+  if (numAnios) numAnios.style.cursor = 'pointer';
+  if (numAnios) numAnios.addEventListener('click', function(){
+    var ahora = Date.now();
+    if (ahora - ultimoClic > 900) clics = 0;
+    ultimoClic = ahora;
+    clics++;
+    if (clics >= 3){
+      clics = 0;
+      document.body.classList.add('vista-todo');
+      alert('MODO DE PRUEBA ACTIVADO ✅\n\n'
+          + '1) Toca la pantalla una vez (para que suene el piano)\n'
+          + '2) Dale clic al botón 🧪 de arriba a la derecha\n'
+          + '3) Verás confeti y escucharás el cambio a Carlos Rivera\n'
+          + '4) El botón se vuelve ↺ y todo vuelve a la normalidad');
+    }
+  });
+
   /* ============ REVEAL AL HACER SCROLL ============ */
   var io = new IntersectionObserver(function(entradas){
     entradas.forEach(function(e){
