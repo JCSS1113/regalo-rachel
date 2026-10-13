@@ -1,22 +1,16 @@
-# 🎵 Aquí van tus dos canciones
+# 🎵 Canciones del regalo
 
-Pon dentro de esta carpeta **exactamente** estos dos archivos (misma letra y nombre):
+| Archivo | Canción | Cuándo suena |
+|---|---|---|
+| **`cancion-cuenta.mp3`** | *Perfect (Piano Version)* | Mientras corre la **cuenta regresiva** (hasta el 15 de octubre) |
+| **`cancion-final.mp3`** | *Te Esperaba* — Carlos Rivera | Cuando el reloj **llega a cero** (¡ya es el 15 de octubre!) 🎉 |
 
-| Archivo | Cuándo suena |
-|---|---|
-| **`cancion-cuenta.mp3`** | Mientras corre la **cuenta regresiva** (hasta el 15 de octubre) |
-| **`cancion-final.mp3`** | Cuando el reloj **llega a cero** (¡ya es el 15 de octubre!) |
+Ambas arrancan **solitas con el primer toque** de ella en la pantalla
+(los navegadores no permiten que el audio suene sin interacción).
 
-### Cómo nombrarlos
-1. Copia el archivo de tu canción aquí dentro.
-2. Cambia el nombre a **`cancion-cuenta.mp3`** o **`cancion-final.mp3`**
-   (clic derecho → Renombrar). Asegúrate de que termine en **.mp3** y no
-   en `.mp3.mp3`.
-
-### Notas
-- Si **falta alguno**, la página usa en su lugar `musica.mp3`
-  (carpeta del regalo, canción libre de derechos *"Flowers"*).
-- La canción **arranca sola con el primer toque** de ella en la pantalla
-  (los navegadores no dejan que suene sin interacción).
-- Botón **♪** (arriba a la derecha) = pausar / reanudar.
-- Cambia las rutas si usas otros nombres → busca **`EDITA 5`** en `index.html`.
+- Botón **♪** (arriba a la derecha) → pausar / reanudar
+- El cambio de canción es **automático**: en el instante en que la cuenta
+  regresiva marca `00` segundos, cambia del piano a Carlos Rivera
+- Si por algún motivo falta un archivo, la página usa `musica.mp3`
+  (carpeta del regalo) como respaldo
+- Para usar otros nombres de archivo → buscar **`EDITA 5`** en `index.html`
